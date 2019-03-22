@@ -1,0 +1,94 @@
+1. Copiar los archivos de la carpeta human_resources a la ruta Recomendada
+\app\oracle\product\12.1.0\dbhome_1\demo\schema\human_resources\
+
+Tambien se puede copiar el cualquier ruta a la cual se tenga acceso para poder ejecutar dichos scripst
+
+2. Abrimos SQLPlus en el servidor de la base de datos y nos logueamos con las siguientes credenciales:
+usuario: sys as sysdba
+contraseña: <la establecida para SYS en la instalación>
+
+Nota en caso de no tener acceso al servidor de la base de datos nos podemos conectar con un cliente de oracle (PLSQL DEVELOPER o SQL Developer)
+Con las credenciales
+  *Nombre de la conexion
+  *Usuario: sys
+  *Clave: ********
+  
+  Tipo de Conexion : sysdba
+  Nombre del Host: IP de la base de datos o nombre del Host
+  Puerto: 1521
+  SID: por este nombre parametro
+  Nombre del servicio: En caso que la base de datos a la que se quiere acceder tiene un nombre del servicio particular o es un contenerdor PDB
+  
+3. Ejecutamos la siguiente Query:
+@?/demo/schema/human_resources/hr_main.sql
+
+o la ruta completa donde esta los archivos
+
+Completamos con los siguientes datos:
+
+• Ingresar una contraseña para el esquema HR. (se recomienda usar la contraseña hr o HR)
+specify password for HR as parameter 1:
+Enter value for 1:
+• Ingresar un espacio de tablas por defecto. Aca debemos ingresar el valor USERS
+
+specify default tablespace for HR as parameter 2:
+Enter value for 2:
+• Ingresar un espacio de tablas temporal. Ingresar el valor TEMP
+specify temporary tablespace for HR as parameter 3:
+Enter value for 3:
+• Debemos ingresar también nuestra contraseña para el usuario SYS (en mi caso 123).
+specify password for SYS as parameter 4:
+Enter value for 4:
+• Y por ultimo, establecer la ruta (path) hacia una carpeta de log (puede ser cualquiera). En mi caso introduje el path: $ORACLE_HOME/log
+specify log path as parameter 5:
+Enter value for 5:
+
+Nota: Esta ejecucion solo funiona si es una base de datos 12C que no esta en modo Multitenant 
+
+En caso que se una base de datos Multitenant con un contenedor especifico para la creacion de este esquema se debe primero conectar al contenedor y luego ejecutar los siguientes pasos.
+
+1. Crear el usuario HR 
+alter session set "_ORACLE_SCRIPT"=true;
+CREATE USER HR IDENTIFIED BY "oracle";
+-- alter user HR identified by "oracle2" account unlock;
+
+ALTER USER HR DEFAULT TABLESPACE users
+              QUOTA UNLIMITED ON users;
+              
+ALTER USER HR TEMPORARY TABLESPACE temp;
+
+GRANT CREATE SESSION, CREATE VIEW, ALTER SESSION, CREATE SEQUENCE TO HR;
+GRANT CREATE SYNONYM, CREATE DATABASE LINK, RESOURCE TO HR;
+
+2. Ingresar a la base de datos con las credenciales del usuario HR
+  *Nombre de la conexion
+  *Usuario: HR
+  *Clave: oracle
+  
+  Tipo de Conexion : valor por defecto
+  Nombre del Host: IP de la base de datos o nombre del Host
+  Puerto: 1521
+  SID: No aplica ya que es base de datos PDB
+  Nombre del servicio: PDBXX Nombre del PDB creado para el ejercicio.
+  
+3. Una vez se ingresa a la base de datos con la conexion del usuario HR se procede a ejecutar los scrips para la creación y población de las tablas
+
+ALTER SESSION SET NLS_LANGUAGE=American;
+ALTER SESSION SET NLS_TERRITORY=America;
+
+@Ruta_donde_estan_los_scripts\human_resources/hr_cre;
+@Ruta_donde_estan_los_scripts\human_resources/hr_popul;
+@Ruta_donde_estan_los_scripts\human_resources/hr_idx;
+@Ruta_donde_estan_los_scripts\human_resources/hr_code;
+@Ruta_donde_estan_los_scripts\human_resources/hr_comnt;
+@Ruta_donde_estan_los_scripts\human_resources/hr_analz;
+
+Con la ejecucion de estos scrips se logra crear el esquema HR
+
+
+
+
+
+
+
+  
