@@ -1,6 +1,9 @@
 #URL´S DE CONSULTA 
 https://livesql.oracle.com/apex/f?p=590:1000
 
+# Tutorial de SQL Developer Oracle
+https://download.oracle.com/oll/tutorials/SQLDeveloper/index.htm
+
 ##-- Direccion url donde explican como configurar la consola Oracle Database 12c: Enterprise Manager Database Express
 http://www.ludovicocaldara.net/dba/tag/start-dbconsole-12c/
 https://oracle-base.com/articles/12c/enterprise-manager-database-express-12cr1
