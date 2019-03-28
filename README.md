@@ -7,9 +7,9 @@ You also set some SQL Developer preferences.
 
 ## Practices for Lesson 2: Retrieving Data Using the SQL SELECT Statement
 This practice covers the following topics:
-• Selecting all data from different tables
-• Describing the structure of tables
-• Performing arithmetic calculations and specifying column names
+- Selecting all data from different tables
+- Describing the structure of tables
+- Performing arithmetic calculations and specifying column names
 
 ## Practices for Lesson 3: Restricting and Sorting Data
 This practice covers the following topics:
