@@ -1,0 +1,3 @@
+-- Direccion url donde explican como configurar la consola Oracle Database 12c: Enterprise Manager Database Express
+http://www.ludovicocaldara.net/dba/tag/start-dbconsole-12c/
+https://192.168.128.120:5500/em/
