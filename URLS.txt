@@ -1,4 +1,18 @@
--- Direccion url donde explican como configurar la consola Oracle Database 12c: Enterprise Manager Database Express
+#URL´S DE CONSULTA 
+https://livesql.oracle.com/apex/f?p=590:1000
+
+##-- Direccion url donde explican como configurar la consola Oracle Database 12c: Enterprise Manager Database Express
 http://www.ludovicocaldara.net/dba/tag/start-dbconsole-12c/
 https://oracle-base.com/articles/12c/enterprise-manager-database-express-12cr1
 https://192.168.128.120:5500/em/
+
+##--VER FORMATOS DE NUMEROS Y FECHAS 
+https://docs.oracle.com/cd/B14117_01/server.101/b10759/sql_elements004.htm
+
+##VER URL PARA MAS INFORMACION SOBRE FUNCION DECODE
+https://www.techonthenet.com/oracle/functions/decode.php
+https://www.techonthenet.com/oracle/index.php
+
+##Displaying Data from Multiple Tables Using Joins
+https://ingenieriadesoftware.es/tipos-sql-join-guia-referencia/
+http://www.tutorialesprogramacionya.com/oracleya/temarios/descripcion.php?cod=214&punto=1&inicio=
